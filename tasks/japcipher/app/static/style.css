@@ -1,0 +1,171 @@
+
+
+body {
+    background: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.bigtext {
+    display: flex;
+    position: fixed;
+    width: 80%;
+    max-width: 1100px;
+    min-width: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.stripu {
+    background-image: linear-gradient(180deg, #8C53CA 0%, #836EAB 42%, #4FFF00 100%);
+    text-align: center;
+    padding: 10px 0;
+}
+
+div.text {
+    margin: 2em auto;
+    font-family: sans-serif;
+    padding: 1em 1em;
+    width: 100%;
+    max-width: 600px;
+    background: #CDFFAB;
+    border: 3px solid #FF0000;
+    border-radius: 12px;
+}
+
+div.header {
+    margin-top: 2em;
+    text-align: center;
+    z-index: 2;
+}
+
+div.intro.text {
+    text-align: center;
+    margin-top: -30px;
+    padding-top: 20px;
+}
+
+p, li {
+    font-size: 10pt;
+}
+
+p {
+    margin-bottom: 2em;
+}
+
+ul {
+    list-style: hiragana-iroha;
+}
+
+label, pre, .answer {
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    font-size: 15px;
+    font-family: DotGothic16;
+}
+
+label {
+    color: #099;
+    letter-spacing: 10px;
+    font-size: 14px;
+    margin-top: -1em;
+    display: block;
+}
+
+label[for="answer"] {
+    margin-top: 0;
+}
+
+pre {
+    color: #00f;
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 1px #00F, inset 0 0 0 2px #FFF, inset 0 0 0 3px #00F, 4px 4px 4px 0 rgba(0,0,0,0.21);
+    padding: 7px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.answer {
+    color: #f00;
+    background: #FFFFFF;
+    border: none;
+    width: 100%;
+    width: -webkit-fill-available;
+    box-shadow: inset 0 0 0 1px #F00, inset 0 0 0 2px #FFF, inset 0 0 0 3px #F00, 4px 4px 4px 0 rgba(0,0,0,0.21);
+    padding: 7px;
+    text-align: center;
+    border-radius: 3px;
+    outline: none;
+}
+
+.answer:focus {
+    box-shadow: inset 0 0 0 1px #F00, inset 0 0 0 2px #F00, inset 0 0 0 3px #F00, 4px 4px 4px 0 rgba(0,0,0,0.21);
+}
+
+pre, .answer {
+    height: 4.5em;
+    vertical-align: middle;
+}
+
+input[type="submit"] {
+    margin-top: 5px;
+    z-index: 2;
+    float: right;
+}
+
+form {
+    clear: both;
+}
+
+img.title {
+    display: block;
+    margin: 10em auto;
+    height: 100%;
+}
+
+img.title.final {
+    margin: 1em 3em;
+    float: right;
+}
+
+img.heading {
+    display: block;
+    object-fit: cover;
+    float: left;
+    padding-right: 20px;
+}
+
+div.text p, div.text ul {
+    margin-left: 90px;
+}
+
+div.intro.text p {
+    margin-left: 0;
+}
+
+.mascot {
+    width: 90px;
+    display: block;
+    padding: 1em 0;
+    float: left;
+}
+
+.treat {
+    font-size: 16px;
+    color: #f59;
+}
+
+.with-images {
+    display: flex;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.with-images > img {
+    max-width: 200px;
+    object-fit: contain;
+    flex: 1 0 0;
+}
