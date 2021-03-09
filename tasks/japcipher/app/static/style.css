@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 body {
     background: #000;
@@ -32,6 +32,7 @@ div.text {
     max-width: 600px;
     background: #CDFFAB;
     border: 3px solid #FF0000;
+    box-shadow: 0 0 120px 20px #F0F9;
     border-radius: 12px;
 }
 
@@ -113,6 +114,21 @@ input[type="submit"] {
     margin-top: 5px;
     z-index: 2;
     float: right;
+    text-align: right;
+    font-size: 14px;
+    padding-right: 40px;
+    color: red;
+    font-weight: bold;
+    background: url('/static/img/b_right.gif') no-repeat;
+    background-position: right;
+    width: 110px;
+    height: 35px;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-image: url('/static/img/b_up.gif');
+    color: blue;
 }
 
 form {
@@ -168,4 +184,32 @@ div.intro.text p {
     max-width: 200px;
     object-fit: contain;
     flex: 1 0 0;
+    z-index: -1;
 }
+
+@keyframes spin-l {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes spin-r {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(-360deg);
+    }
+}
+
+.bigtext img.big-l {
+    animation: spin-l 10s infinite linear;
+}
+
+.bigtext img.big-r {
+    animation: spin-r 10s infinite linear;
+}
+

@@ -89,9 +89,9 @@ def build_app():
             if answer == poem:
                 flag = get_flag(token)
                 mascot = "happy"
-            elif answer == 'no_answer!!!':
+            elif answer == 'no_answer!!!' or answer == "":
                 mascot = "angry"
-                msg = "Your answer is malformed. Please seek help. P.S. YOU MADE MATISYAHU-KUN ANGRY."
+                msg = "Your answer is malformed. Please seek help. P.S. YOU MADE MATITYAHU-KUN ANGRY."
             else:
                 mascot = "sad"
                 msg = "Your answer is incorrect. May the patience and wisdom overcome your inpatience..."            

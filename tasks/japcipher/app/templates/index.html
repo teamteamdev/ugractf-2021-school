@@ -26,13 +26,13 @@
 
 
       
-      <img class="title" src="static/img/without_further_ado.png">
+      <img class="title" src="static/img/without_further_ado.png" title="Without further ado...">
 
 
       <div class="with-images">
       <img class="left" src="static/img/parabola_formura.png">
       <div class="text">
-        <img class="heading" src="static/img/definition.png">
+        <img class="heading" src="static/img/definition.png" title="THE DEFINITION">
         <p>The affine cipher is a type of monoalphabetic substitution cipher, where each letter in an alphabet is mapped to its numeric equivalent, encrypted using a simple mathematical function, and converted back to a letter.</p>
         <p><b>Example.</b> Suppose you have a letter "B". It is the second letter of <b>Italian alphabet (イタリア語のアルファベット).</b> We impose a function f(x) = x·x. Thus, f(2) = 4. "B" → "D". MIRU?</p>
       </div>
@@ -41,14 +41,17 @@
 
 
       
-      <img class="title" src="static/img/easy.png">
+      <img class="title" src="static/img/easy.png" title="Easy enough?">
 
 
 
-      <div class="text">
-        <img class="heading" src="static/img/tasuku.png">
+      <div class="text" id="tasuku">
+        <img class="heading" src="static/img/tasuku.png" title="THE TASK">
         <p>The use of <b>AFFINE TRANSFORMATIONS</b> in cryptography is ubiquitous. There are lots of examples in different aspects of the Human culture.</p>
         <p style="font-weight: bold; color: #e40">But rarely we see an AFFINE TRANSFORMATIONS based cipher for native NIHONGO-NO KANA (Japanese writing)!</p>
+        <center>
+          <img src="/static/img/nihongo.svg" width="180px">
+        </center>
         <p>I thought a bit and introduced just a cipher. This is a <b>TASK</b> for you. Use all the knowledge you gathered.　This is a cipher seen in many cultures through and through... It is based on manipulations on a traditional Japanese <b>HIRAGANA <nobr>(ヒラガナ)</nobr></b> and its traditional ordering. And here is the ciphertext:</p>
 
         <pre class="ciphertext" id="ciphertext">{{ciphertext}}</pre>
@@ -75,10 +78,16 @@
         <img class="mascot" src="static/img/mascot/{{mascot}}.png">
         
         {% if flag and not msg %}
+        <script>document.getElementById('tasusku').scrollIntoView()</script>
         <p class="treat"><br><br>Treat: <code>{{flag}}</code><br></p>
+        {% elif msg %}
+        <script>document.getElementById('tasuku').scrollIntoView()</script>
+        <p style="margin-top: 3em; margin-bottom: 2em; margin-left: 120px; font-size: 17px; color: red">
+          {{msg}}
+        </p>
         {% else %}
         <p style="margin-top: 3em; margin-bottom: 2em; margin-left: 120px; font-size: 17px;">
-          {{msg|default("May this specialty's mascot—Matishyahu-kun—help you with this task!")}}
+          May this specialty's mascot—Matityahu-kun—help you with this task!
         </p>
         {% endif %}
         
