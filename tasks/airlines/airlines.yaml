@@ -1,0 +1,9 @@
+category: "crypto"
+name:     "Японский шифр"
+points:   150
+author:   ksixty
+description: |
+  <p>Наш воображаемый друг из Японии снова на связи! На этот раз у него для вас совсем другая загадка. Ему слово...</p>
+generator: generate.py
+daemon: app/server.py
+daemon_socket: "japcipher.sock"

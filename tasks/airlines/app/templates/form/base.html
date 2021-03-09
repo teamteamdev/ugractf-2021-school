@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% set city, airport, date, price, time, number = flight %}
+<br>
+<div class="flights">
+  <p class="airport">Оформление заказа на рейс:</p>
+  <div class="flight-choice flight-choice_separate">
+      <div class="time">
+        {{time}}
+        <div class="number">UG {{number}}</div>
+      </div>
+      <div class="from-to">
+        <p>{{city}} <span class="airport">{{airport}}</span></p>
+        <p>Ханты-Мансийск <span class="airport">HMA</span></p>
+      </div>
+      <div class="price">{{price}} ₽</div>
+    </div>
+</div>
+
+<div class="generic">
+  <h1>{{title}}</h1>
+  <h2>{{subtitle}}</h2>
+  <div class="generic-form">
+    {% block form %}
+    {% endblock %}
+  </div>
+</div>
+<script type="text/javascript" src="/static/js/md5.min.js"></script>
+<script type="text/javascript" src="/static/js/air.js"></script>
+<script type="text/javascript" src="/static/js/form.js"></script>
+{% endblock %}

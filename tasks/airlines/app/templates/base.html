@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Авиакомпания S21 · Купить билеты · Стремиться к счастью</title>
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body {{ 'class=with-notice' if notice else "" }}>
+      {% if notice %}
+      <div class="notice">
+        <marquee scrollamount="10">{{notice|safe}}</marquee>
+      </div>
+      {% endif %}
+      
+      <div class="header">
+        <a href="/" class="header_logo">
+          <img src="/static/img/logo.svg">
+        </a>
+        <div class="header_nav">
+          <a href="/miles">Мили — это смех</a>
+          <a href="/corruption">Коррупция</a>
+          <a href="/feedback" class="link-btn">Обратная связь</a>
+        </div>
+        <div class="header_misc">
+          Русский - Россия
+          <img src="/static/img/ru.png">
+        </div>
+      </div>
+
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+      <div class="footer">
+        <div class="links">
+          <a href="/corruption">Противоборство с коррупцией</a><br>
+          <a href="/cities">Города</a>
+        </div>
+        <a class="email" href="mailto:noreply@airlines.s21.ugractf.ru">noreply@airlines.s21.ugractf.ru</a>
+      </div>
+      
+    </body>
+</html>

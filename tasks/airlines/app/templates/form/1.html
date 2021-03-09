@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="generic">
+  <h1>Выберите подходящий рейс</h1>
+  <h2>Дата вылета: {{flights[0][2]}}</h2>
+  <div class="flights">
+    {% set d_city, d_airport, _ = hm %}
+    <div href="/fill-in-order" class="flight-choice flight-choice_header">
+      <p class="time">ВЫЛЕТ, РЕЙС</p>
+      <p class="from_to">ОТКУДА, КУДА</p>
+      <p class="price">ЛУЧШАЯ ЦЕНА</p>
+    </div>
+    {% for city, airport, date, price, time, number in flights %}
+    <div class="flight-choice"
+         data-number="{{number}}" data-date="{{date}}" data-time="{{time}}"
+         data-city="{{city}}" data-dcity="{{d_city}}" data-airport="{{airport}}" data-price="{{price}}">
+      <div class="time">
+        {{time}}
+        <div class="number">UG {{number}}</div>
+      </div>
+      <div class="from-to">
+        <p>{{city}} <span class="airport">{{airport}}</span></p>
+        <p>{{d_city}} <span class="airport">{{d_airport}}</span></p>
+      </div>
+      <div class="price">{{price}} ₽</div>
+    </div>
+    {% endfor %}
+  </div>
+  <button onclick="setFlight()" disabled>Продолжить</a>
+</div>
+<script type="text/javascript" src="/static/js/md5.min.js"></script>
+<script type="text/javascript" src="/static/js/air.js"></script>
+<script type="text/javascript" src="/static/js/picker.js"></script>
+{% endblock %}

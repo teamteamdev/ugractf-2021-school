@@ -1,0 +1,12 @@
+{% extends "/form/base.html" %}
+
+{% set title = "Кулинария" %}
+{% set subtitle = "Порадуйте себя и своих близких нашими специальными предложениями. Совместно с группой компаний «АгроМар»." %}
+
+{% block form %}
+<img src="/static/img/burger.png">
+
+<label for="hamburger">Предзаказать данное блюдо</label> <input type="checkbox" checked name="hamburger" id="hamburger">
+
+<button onclick="next()">Далее</button>
+{% endblock %}

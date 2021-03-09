@@ -1,0 +1,20 @@
+{% extends "/form/base.html" %}
+
+{% set title = "Выберите тариф" %}
+{% set subtitle = "" %}
+
+{% block form %}
+<div class="options">
+<input type="radio" id="basic" name="class" value="basic">
+<label for="basic">Базовый</label>
+
+<input type="radio" id="normal" name="class" value="normal">
+<label for="normal">Стандартный</label>
+
+<input type="radio" id="other" name="class" value="business">
+<label for="business">«Высший эшелон»</label>
+</div>
+
+
+<button onclick="next()">Далее</button>
+{% endblock %}

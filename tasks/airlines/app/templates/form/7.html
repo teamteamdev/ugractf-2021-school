@@ -1,0 +1,18 @@
+{% extends "/form/base.html" %}
+
+{% set title = "Подтверждение заказа" %}
+{% set subtitle = "Внимательно проверьте все свои данные. После нажатия кнопки «далее» мы спишем средства." %}
+
+{% block form %}
+<div class="options">
+  <input type="radio" id="card" disabled>
+  <label for="basic">Банковской картой (временно недоступно)</label>
+
+  <input type="radio" id="promocode" disabled>
+  <label for="basic">Промокодом</label>
+</div>
+
+<input name="promocode" placeholder="Промокод">
+
+<button onclick="finalize()">Завершить заказ</button>
+{% endblock %}
