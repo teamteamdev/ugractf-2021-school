@@ -1,7 +1,7 @@
 - kind: wrapper
   subkind: outer
   is_wrapper: true
-  is_ucucuga: true
+  is_ucucuga: false
   class:
     name: OuterWrapper
     parent: Wrapper
@@ -33,7 +33,6 @@
               elements:
                 - kind: conversation
                   is_wrapper: false
-                  is_ucucuga: false
                   class:
                     name: Conversation
                   name: Conversation1
@@ -46,6 +45,15 @@
                       name: Message1
                       encryption:
                         algorithm: chacha20
+                        implementation:
+                          kind: implementation
+                          is_wrapper: false
+                          is_ucucuga: true
+                          class:
+                            name: CipherImplemenetation
+                          name: CipherImplemenetation1
+                          type: openssl
+                          binary: /usr/bin/openssl
                         parameters:
                           key:
                             kind: data
