@@ -1,0 +1,85 @@
+- kind: wrapper
+  subkind: outer
+  is_wrapper: true
+  is_ucucuga: true
+  class:
+    name: OuterWrapper
+    parent: Wrapper
+  name: OuterWrapper1
+  elements:
+    - kind: wrapper
+      subkind: inner
+      is_wrapper: true
+      class:
+        name: InnerWrapper
+        parent: Wrapper
+      name: InnerWrapper1
+      elements:
+        - kind: wrapper
+          subkind: meta
+          is_wrapper: true
+          class:
+            name: MetaWrapper
+            parent: Wrapper
+          name: MetaWrapper1
+          elements:
+            - kind: wrapper
+              subkind: conversation
+              is_wrapper: true
+              class:
+                name: ConversationWrapper
+                parent: Wrapper
+              name: ConversationWrapper1
+              elements:
+                - kind: conversation
+                  is_wrapper: false
+                  is_ucucuga: false
+                  class:
+                    name: Conversation
+                  name: Conversation1
+                  elements:
+                    - kind: message
+                      is_wrapper: false
+                      is_encrypted: true
+                      class:
+                        name: Message
+                      name: Message1
+                      encryption:
+                        algorithm: chacha20
+                        parameters:
+                          key:
+                            kind: data
+                            class:
+                              name: Data
+                            name: Data1
+                            is_wrapper: false 
+                            encoding: base64
+                            length: 32
+                            value: "+++K+++"
+                          salt:
+                            kind: data
+                            class:
+                              name: Data
+                            name: Data2
+                            is_wrapper: false 
+                            encoding: base64
+                            length: 16
+                            value: "+++S+++"
+                          initialization_vector:
+                            kind: data
+                            class:
+                              name: Data
+                            name: Data3
+                            is_wrapper: false 
+                            encoding: base64
+                            length: 16
+                            value: "+++IV+++"
+                      contents:
+                        kind: data
+                        class:
+                          name: Data
+                        name: Data4
+                        is_wrapper: false 
+                        encoding: base64
+                        length: 52
+                        value: "+++CIPHER+++"
