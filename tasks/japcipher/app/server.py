@@ -126,7 +126,7 @@ def start():
     if os.environ.get('DEBUG') == 'F':
         web.run_app(app, host='0.0.0.0', port=31337)
     else:
-        tmp = os.environ.get('TMP_DIR')
+        tmp = os.environ['TMPDIR']
         web.run_app(app, path=os.path.join(tmp, 'japcipher.sock'))
 
 
