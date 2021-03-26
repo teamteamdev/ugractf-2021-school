@@ -1,5 +1,6 @@
+name: japcipher
 category: "crypto"
-name:     "Японский шифр"
+title:     "Японский шифр"
 points:   150
 author:   ksixty
 description: |
