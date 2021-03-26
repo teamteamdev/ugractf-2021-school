@@ -7,4 +7,5 @@ description: |
   <p>Наш воображаемый друг из Японии снова на связи! На этот раз у него для вас совсем другая загадка. Ему слово...</p>
 generator: run_generator.sh
 daemon: app/run_daemon.sh
+daemon_isolate: false
 daemon_socket: "japcipher.sock"

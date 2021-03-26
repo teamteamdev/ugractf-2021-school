@@ -9,4 +9,5 @@ description: |
   <p>Вы только поторопитесь — билеты, говорят, дорожают.</p>
 generator: run_generator.sh
 daemon: app/run_daemon.sh
+daemon_isolate: false
 daemon_socket: "airlines.sock"
