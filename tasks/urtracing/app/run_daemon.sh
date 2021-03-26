@@ -1,4 +1,4 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i sh shell.nix
 
-python server.py "@$"
+exec "$TMPDIR/isolate" ./isolated_run_daemon.sh "$@"
