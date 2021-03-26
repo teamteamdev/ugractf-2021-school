@@ -7,6 +7,6 @@ description: |
   <p>Купите билет до Ханты-Мансийска. Денег не надо, вот вам промокод на 5000 рублей:</p>
   <pre>{{promocode}}</pre>
   <p>Вы только поторопитесь — билеты, говорят, дорожают.</p>
-generator: generate.py
-daemon: app/server.py
+generator: run_generator.sh
+daemon: app/run_daemon.sh
 daemon_socket: "airlines.sock"

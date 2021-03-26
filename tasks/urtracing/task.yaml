@@ -6,6 +6,6 @@ author:   vanya
 description: |
     <p>ПАО «Агрокекстрой» представляет первую в мире игру, нацеленную на построение навыка слепой десятикопытной печати.
     <p>Против вас соревнуется идеальный игрок, компьютер. Сможете его обогнать?
-generator: generate.py
-daemon:    app/server.py
+generator: run_generator.sh
+daemon:    app/run_daemon.sh
 daemon_socket: "urtracing.sock"
