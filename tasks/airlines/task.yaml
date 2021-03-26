@@ -9,4 +9,4 @@ description: |
   <p>Вы только поторопитесь — билеты, говорят, дорожают.</p>
 generator: generate.py
 daemon: app/server.py
-daemon_socket: "japcipher.sock"
+daemon_socket: "airlines.sock"
