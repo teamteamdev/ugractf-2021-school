@@ -36,7 +36,9 @@ def generate():
 
     json.dump({
         "flags": [flag],
-        "substitutions": {},
+        "substitutions": {
+            'promocode': token
+        },
         "urls": [f"https://airlines.{{hostname}}/{token}"]
     }, sys.stdout)
 

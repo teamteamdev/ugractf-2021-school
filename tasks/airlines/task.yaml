@@ -1,10 +1,12 @@
 name: airlines
 category: "crypto"
-title:     "Японский шифр"
+title:     "S21 Airlines"
 points:   150
 author:   ksixty
 description: |
-  <p>Наш воображаемый друг из Японии снова на связи! На этот раз у него для вас совсем другая загадка. Ему слово...</p>
+  <p>Купите билет до Ханты-Мансийска. Денег не надо, вот вам промокод на 5000 рублей:</p>
+  <pre>{{promocode}}</pre>
+  <p>Вы только поторопитесь — билеты, говорят, дорожают.</p>
 generator: generate.py
 daemon: app/server.py
 daemon_socket: "japcipher.sock"
