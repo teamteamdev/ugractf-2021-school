@@ -1,3 +1,4 @@
 .DS_Store
 *.log
 __pycache__
+/tasks/urtracing/app/.mypy_cache/3.7/@plugins_snapshot.json

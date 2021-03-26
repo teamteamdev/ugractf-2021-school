@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ЮРТОГОНКИ - Вместе Веселей!</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <img src="/static/logo.png" class="logo">
+  <div class="game">
+    <div class="stats">
+      <div class="stat">
+        <div class="value" id="avg"></div>
+        <h3>Симв. / сек.</h3>
+      </div>
+      <div class="stat">
+        <div class="value" id="mistakes"></div>
+        <h3>Ошибки</h3>
+      </div>
+      <div class="stat">
+        <div class="value" id="accuracy"></div>
+        <h3>Точность</h3>
+      </div>
+    </div>
+    <div class="players">
+      <div class="player player">
+        <div class="sleigh" id="player"></div>
+        <div class="urt"></div>
+      </div>
+      <h3>Вы</h3>
+      <div class="player player-computer">
+        <div class="sleigh" id="opponent"></div>
+        <div class="urt"></div>
+      </div>
+      <h3>Профессиональный функциональный компьютер</h3>
+    </div>
+    <div class="text" id="text">
+    </div>
+  </div>
+<script type="text/javascript" src="/static/game.js"></script>
+</body>
