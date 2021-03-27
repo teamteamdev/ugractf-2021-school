@@ -39,7 +39,7 @@ def generate():
         "substitutions": {
             'promocode': token
         },
-        "urls": [f"https://airlines.{{hostname}}/{token}"]
+        "urls": [f"https://airlines.{{hostname}}/"]
     }, sys.stdout)
 
 
