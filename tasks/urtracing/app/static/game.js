@@ -1,3 +1,5 @@
+confirm('Давно тебя не было в Юртогонках... Заходи!');
+
 let lastInput = 0;
 
 const handlePress = e => {
