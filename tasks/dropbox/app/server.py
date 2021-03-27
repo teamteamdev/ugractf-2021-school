@@ -12,7 +12,14 @@ from flask import Flask, render_template, request, send_file
 BASE_DIR = os.path.dirname(__file__)
 STATE_DIR = sys.argv[1] if len(sys.argv) >= 2 else BASE_DIR
 
-ROOT_FOLDER = 'fake'
+ROOT_FOLDER = os.path.join(STATE_DIR, 'fake')
+os.makedirs(ROOT_FOLDER, exist_ok=True)
+for i in os.listdir('fake'):
+    try:
+        os.symlink(os.path.abspath(os.path.join('fake', i)), os.path.join(ROOT_FOLDER, i))
+    except FileExistsError:
+        pass
+
 APP_PATH = 'opt/dropbox/app/storage'
 PREFIX = 'ugra_plus_twenty_social_points_'
 FLAG_SECRET = b'2RG64fXAGfLZQSDK'
