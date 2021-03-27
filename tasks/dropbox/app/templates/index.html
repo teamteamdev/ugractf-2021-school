@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Уронить Коробка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Уронить Коробка</h1>
+<h3>Документ размен лучшее в Россия</h3>
+<h4>Груз вашего документа и получение ссылки на распространение по друзьям!</h4>
+{% if info %}
+<div class="info">{{ info }}</div>
+{% endif %}
+<form action="/{{ token }}/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Груз">
+</form>
+<footer>(с) Простой русский Иван город Тверь, КПК</footer>
+</body>
+</htmL>

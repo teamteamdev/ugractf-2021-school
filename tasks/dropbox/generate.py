@@ -28,7 +28,7 @@ def generate():
     json.dump({
         'flags': [flag],
         'substitutions': {},
-        'urls': [f'https://dropbox.{{hostname}}/{token}']
+        'urls': [f'https://dropbox.{{hostname}}/{token}/']
     }, sys.stdout)
 
 

@@ -1,0 +1,11 @@
+name: dropbox
+category: "web"
+title: "Dropbox"
+points: 200
+author: javach
+description: >
+  <p>Говорят, это лучший файлообменник.</p>
+generator: "generate.py"
+daemon: app/run_daemon.sh
+daemon_isolate: false
+daemon_socket: dropbox.sock
