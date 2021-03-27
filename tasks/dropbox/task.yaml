@@ -8,4 +8,4 @@ description: >
 generator: run_generator.sh
 daemon: app/run_daemon.sh
 daemon_isolate: false
-daemon_socket: dropbox.sock
+daemon_socket: "dropbox.sock"
