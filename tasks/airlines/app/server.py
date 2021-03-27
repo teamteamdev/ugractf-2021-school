@@ -171,14 +171,17 @@ def build_app():
             decoded = unquote(decoded)
             fields = {x[0]: x[1] for x in list(map(lambda x: x.split(':'), decoded.split(';')))}
 
-            valid = all([
-                session['number'] == fields['number'],
-                session['date'] == fields['date'],
-                session['city'] == fields['from']
-            ])            
-            ok = air.check_sealed_fields(fields)
+            # these are needed only for templating. won't validate.
+            # valid = all([
+                # session['number'] == fields['number'],
+                # session['date'] == fields['date'],
+                # session['city'] == fields['from']
+            # ])
 
-            if valid and ok:
+            ok = air.check_sealed_fields(fields)
+            has_cookie = session.get('hits')
+
+            if ok and has_cookie:
                 flights = air.build_search_results(fields['from'], fields['date'], session['hits'])
                 the_flight = list(filter(lambda x: str(x[5]) == fields['number'], flights))[0]
                 if int(the_flight[3]) > 5000:

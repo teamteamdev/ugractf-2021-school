@@ -28,5 +28,4 @@ const finalize = () => {
     form.innerHTML =
         `<input type="hidden" name="sealedOrderData" value="${s}">`
     form.submit();
-    console.log(s);
 }
