@@ -1,11 +1,11 @@
 name: airlines
-category: "crypto"
+category: "web"
 title:     "S21 Airlines"
-points:   150
+points:   200
 author:   ksixty
 description: |
   <p>Купите билет до Ханты-Мансийска. Денег не надо, вот вам промокод на 5000 рублей:</p>
-  <pre>{{promocode}}</pre>
+  <ul>{{promocode}}</ul>
   <p>Вы только поторопитесь — билеты, говорят, дорожают.</p>
 generator: run_generator.sh
 daemon: app/run_daemon.sh
