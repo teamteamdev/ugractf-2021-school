@@ -4,6 +4,6 @@
       python3Packages.aiohttp
       python3Packages.aiohttp-session
       python3Packages.aiohttp-jinja2
-      cryptography
+      python3Packages.cryptography
     ];
 }
