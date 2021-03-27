@@ -25,7 +25,7 @@ SALT2_SIZE = 16
 
 CPS = 20
 
-with open('poems.txt', 'r') as file:
+with open('poems-translit.txt', 'r') as file:
     poems = file.read().split('*\n')
 
 
