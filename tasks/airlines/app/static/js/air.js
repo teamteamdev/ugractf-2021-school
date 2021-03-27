@@ -9,7 +9,6 @@ serializeState = (dict) => {
 deserializeState = (state) => {
     kv = decodeURIComponent(atob(state));
     dict = Object.fromEntries(kv.split(';').map(x => x.split(':')));
-    console.log(dict);
     return dict;
 }
 
