@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-exec gunicorn -b "unix:$TMPDIR/dropbox.sock" "server:make_app()"
+STATE_DIR=$1 exec gunicorn -b "unix:$TMPDIR/dropbox.sock" "server:make_app()"

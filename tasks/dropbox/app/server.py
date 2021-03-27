@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, send_file
 
 BASE_DIR = os.path.dirname(__file__)
-STATE_DIR = sys.argv[1] if len(sys.argv) >= 2 else BASE_DIR
+STATE_DIR = os.environ.get('STATE_DIR', BASE_DIR)
 
 ROOT_FOLDER = os.path.join(STATE_DIR, 'fake')
 os.makedirs(ROOT_FOLDER, exist_ok=True)
