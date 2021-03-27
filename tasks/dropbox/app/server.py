@@ -14,7 +14,7 @@ STATE_DIR = sys.argv[1] if len(sys.argv) >= 2 else BASE_DIR
 
 ROOT_FOLDER = 'fake'
 APP_PATH = 'opt/dropbox/app/storage'
-PREFIX = 'ugra_plus_twenty_social_points_'
+PREFIX = 'ugra_dvoinoi_ris_etot_gospodin'
 FLAG_SECRET = b'2RG64fXAGfLZQSDK'
 FLAG_SALT_SIZE = 12
 
