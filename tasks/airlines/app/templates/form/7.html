@@ -1,18 +1,20 @@
 {% extends "/form/base.html" %}
 
 {% set title = "Подтверждение заказа" %}
-{% set subtitle = "Внимательно проверьте все свои данные. После нажатия кнопки «далее» мы спишем средства." %}
+{% set subtitle = "Внимательно проверьте все свои данные. После нажатия кнопки «далее» мы спишем все средства с выбранного Вами платёжного инструмента." %}
 
 {% block form %}
-<div class="options">
-  <input type="radio" id="card" disabled>
-  <label for="basic">Банковской картой (временно недоступно)</label>
-
-  <input type="radio" id="promocode" disabled>
-  <label for="basic">Промокодом</label>
-</div>
-
+<br>
+<input type="radio" id="card" disabled>
+<label for="basic" style="opacity: 0.5">Банковской картой (временно недоступно)</label>
+<hr>
+<input type="radio" id="promocode" checked="checked">
+<label for="basic">Промокодом</label>   
 <input name="promocode" placeholder="Промокод">
+<br><br><br>
+
+<form action="/eticket" method="POST" id="eticketForm">
+</form>
 
 <button onclick="finalize()">Завершить заказ</button>
 {% endblock %}

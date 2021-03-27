@@ -4,7 +4,6 @@
 {% set subtitle = "" %}
 
 {% block form %}
-<div class="options">
   <input name="last" placeholder="Фамилия" required>
   <input name="first" placeholder="Имя" required>
   <input name="patronymic" placeholder="Отчество">
@@ -13,7 +12,6 @@
   <hr>
   <input name="passport" placeholder="Номер паспорта">
   <input name="valid_thru" type="date" min="2021-03-27" value="2022-03-27">
-</div>
-
+  <br><br>
 <button onclick="next()">Далее</button>
 {% endblock %}

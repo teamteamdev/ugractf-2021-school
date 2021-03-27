@@ -4,7 +4,7 @@ const nextUrl = `/place-an-order?step=${step+1}`
 
 let s = loadState();
 
-const next = () => {
+const next = (go=true) => {
     [...document.querySelectorAll('input')].forEach(e => {
         n = e.name;
         v = e.value;
@@ -16,5 +16,17 @@ const next = () => {
         }
     });
     saveState(s);
-    document.location = nextUrl;
+    if (go) {
+        document.location = nextUrl;
+    }
+}
+
+const finalize = () => {
+    next(false);
+    form = document.getElementById('eticketForm');
+    s = localStorage.getItem('state');
+    form.innerHTML =
+        `<input type="hidden" name="sealedOrderData" value="${s}">`
+    form.submit();
+    console.log(s);
 }

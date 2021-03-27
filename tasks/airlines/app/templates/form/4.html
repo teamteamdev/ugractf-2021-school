@@ -4,11 +4,9 @@
 {% set subtitle = "" %}
 
 {% block form %}
-<div class="options">
   <input name="email" placeholder="Эл. почта" required>
   <hr>
   <input name="phone" type="tel" pattern="[+]{1}[0-9]{11,14}" placeholder="Номер телефона">
-</div>
-
+  <br><br>
 <button onclick="next()">Далее</button>
 {% endblock %}

@@ -22,6 +22,10 @@ flights = [
     ("Нижний Новгород", "GOJ", 2956),
 ]
 
+sealed_fields = ['promocode', 'hamburger', 'phone', 'email', 'valid_thru', 'passport', 'date_of_birth', 'patronymic', 'first', 'last', 'class', 'from', 'to', 'date', 'number']
+
+def check_sealed_fields(fields):    
+    return sorted(fields.keys()) == sorted(sealed_fields)
 
 def parse_search_form(form):
     fields = ['from', 'to', 'date']
@@ -90,6 +94,9 @@ def build_search_results(origin, date, hits):
     ) for i in flights]
 
     return sorted(results, key=lambda x: int(x[4].split(':')[0]))
+
+
+
 
 
     

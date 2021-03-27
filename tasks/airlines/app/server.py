@@ -24,6 +24,7 @@ import sys
 from jinja2 import FileSystemLoader
 import base64
 import time
+from urllib.parse import unquote
 
 from functools import wraps
 
@@ -69,7 +70,10 @@ def build_app():
             else:
                 raise
     
-    app = web.Application(middlewares=[error_middleware])
+    app = web.Application(
+        middlewares=[error_middleware],
+        client_max_size=10000000
+    )
     routes = web.RouteTableDef()
 
     @routes.get('/favicon.ico')
@@ -157,7 +161,35 @@ def build_app():
             return jinja2.render_template(f'form/{step}.html', request, {
                 "flight": the_flight
             })                
-            
+
+    @routes.post('/eticket')
+    async def send_eticket(request):
+        session = await get_session(request)
+        data = (await request.post()).get('sealedOrderData')
+        if data:
+            decoded = base64.b64decode(data).decode('ascii')
+            decoded = unquote(decoded)
+            fields = {x[0]: x[1] for x in list(map(lambda x: x.split(':'), decoded.split(';')))}
+
+            valid = all([
+                session['number'] == fields['number'],
+                session['date'] == fields['date'],
+                session['city'] == fields['from']
+            ])            
+            ok = air.check_sealed_fields(fields)
+
+            if valid and ok:
+                flights = air.build_search_results(fields['from'], fields['date'], session['hits'])
+                the_flight = list(filter(lambda x: str(x[5]) == fields['number'], flights))[0]
+                if int(the_flight[3]) > 5000:
+                    return jinja2.render_template('poor.html', request, {})
+                return jinja2.render_template('eticket.html', request, {
+                    "data": fields,
+                    "flight": the_flight,
+                    "flag": get_flag(fields['promocode'])
+                })
+
+        raise web.HTTPBadRequest()
             
     routes.static('/static', 'static')
 

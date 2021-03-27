@@ -241,6 +241,10 @@ form.main-ticket input[type="submit"]:hover {
     letter-spacing: 1px;
 }
 
+.flight-choice_chosen {
+    background: #6c71c411;
+}
+
 .flight-choice .time,
 .flight-choice .price {
     font-size: 1.75em;
@@ -299,4 +303,57 @@ form.main-ticket input[type="submit"]:hover {
 
 label[for="business"] {
     color: #13b74e;
+}
+
+.generic-form {
+    max-width: 600px;
+    margin: 0 auto;    
+}
+
+.options > * {
+    float: left;
+    display: block;
+    line-height: 1;
+    padding-bottom: 15px;
+    vertical-align: bottom;
+}
+
+.options,
+.options input {
+    clear: both;
+}
+
+.options {
+    display: block;
+    min-height: 100px;
+}
+
+.generic-form button {
+    border: 0;
+    margin: 0 auto;
+    display: block;
+    font: inherit;
+    background: #FFB800;
+    padding: 10px 20px;
+    color: #fff !important;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.generic-form hr {
+    height: 0;
+    border: 0;
+    border-bottom: 1px solid #0002;
+}
+
+.generic-form > input {
+    border: 1px solid #0002;
+    padding: 5px;
+    height: 20px;
+    font: inherit;
+    font-size: 0.8em;
+}
+
+.hamburger {
+    width: 100%;
 }

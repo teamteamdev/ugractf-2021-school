@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% set city, airport, date, price, time, number = flight %}
+<div class="generic">
+  <h1>Ваш билет</h1>
+  <h2>Данная рассылка носит информационный характер и не является основанием для предоставления услуг в рамках тарифа.</h2>
+
+  <div class="flight-choice flight-choice_separate">
+      <div class="time">
+        {{time}}
+        <div class="number">UG {{data['number']}}</div>
+      </div>
+      <div class="from-to">
+        <p>{{city}} <span class="airport">{{airport}}</span></p>
+        <p>Ханты-Мансийск <span class="airport">HMA</span></p>
+      </div>
+      <div class="price">{{price}} ₽</div>
+  </div>
+
+  <h3 style="text-align: center;">Сведения о пассажире</h3>
+  <div class="generic-form">
+    <p><strong>Имя:</strong> {{data['last']}}, {{data['first']}} {{data['patronymic']}}</p>
+    <p><strong>Паспорт:</strong> {{data['passport']}}</p>
+    <p><strong>Номер заказа:</strong> <pre>{{flag}}</pre></p>
+  </div>
+</div>
+
+{% endblock %}

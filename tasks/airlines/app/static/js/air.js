@@ -1,9 +1,7 @@
 serializeState = (dict) => {
     state = (Object.entries(dict).map(
         ([k, v]) => `${k}:${v}`
-    )).join(';') + ";hash:";
-    state += md5(state);
-    console.log(state);
+    )).join(';');
     state = btoa(encodeURIComponent(state));
     return state;
 };
@@ -11,10 +9,11 @@ serializeState = (dict) => {
 deserializeState = (state) => {
     kv = decodeURIComponent(atob(state));
     dict = Object.fromEntries(kv.split(';').map(x => x.split(':')));
+    console.log(dict);
     return dict;
 }
 
-loadState = () => {
+loadState = () => {    
     state = localStorage.getItem('state');
     return deserializeState(state);
 }
