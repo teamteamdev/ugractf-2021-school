@@ -21,7 +21,7 @@ for i in os.listdir('fake'):
         pass
 
 APP_PATH = 'opt/dropbox/app/storage'
-PREFIX = 'ugra_plus_twenty_social_points_'
+PREFIX = 'ugra_dvoinoi_ris_etot_gospodin'
 FLAG_SECRET = b'2RG64fXAGfLZQSDK'
 FLAG_SALT_SIZE = 12
 
