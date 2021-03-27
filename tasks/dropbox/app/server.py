@@ -65,7 +65,7 @@ def make_app():
             return render_template('index.html', info='Документ с имя %s существует. Не расстраивайте товарищ Xi Зиньпин!' % filename, token=token)
         os.makedirs(os.path.join(ROOT_FOLDER, APP_PATH), exist_ok=True)
         file.save(os.path.join(ROOT_FOLDER, APP_PATH, filename))
-        link = request.url_root + token + '/getfile?filename=' + filename
+        link = '/' + token + '/getfile?filename=' + filename
         return render_template('upload.html', link=link, token=token)
 
 
