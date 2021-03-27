@@ -1,0 +1,27 @@
+body {
+    color: yellow;
+    background: red;
+    letter-spacing: 0.8em;
+}
+
+h1, h2, h3 {
+    text-decoration: underline;
+}
+
+input {
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+footer {
+    margin-top: 5em;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: orange;
+}
