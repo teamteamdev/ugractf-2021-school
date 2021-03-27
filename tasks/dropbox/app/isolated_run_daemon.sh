@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python server.py "@$"
+exec gunicorn -b "unix:$1/dropbox.sock" "server:make_app()"

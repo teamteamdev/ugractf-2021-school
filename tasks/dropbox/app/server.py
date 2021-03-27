@@ -5,17 +5,18 @@ import hmac
 import os
 import io
 import pathlib
+import sys
 from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, send_file
+
+BASE_DIR = os.path.dirname(__file__)
+STATE_DIR = sys.argv[1] if len(sys.argv) >= 2 else BASE_DIR
 
 ROOT_FOLDER = 'fake'
 APP_PATH = 'opt/dropbox/app/storage'
 PREFIX = 'ugra_plus_twenty_social_points_'
 FLAG_SECRET = b'2RG64fXAGfLZQSDK'
 FLAG_SALT_SIZE = 12
-
-app = Flask(__name__)
-
 
 def generate_flag(token):
     return PREFIX + hmac.new(FLAG_SECRET, token.encode(), 'sha256').hexdigest()[:FLAG_SALT_SIZE]
@@ -37,51 +38,62 @@ def fix_extension(filename):
     return filename_without_extension + extension
 
 
-@app.route('/<token>/')
-def index(token):
-    return render_template('index.html', token=token)
+def make_app():
+    app = Flask(__name__)
 
 
-@app.route('/<token>/upload', methods=['POST'])
-def upload(token):
-    file = request.files['file']
-    if file.filename == '':
-        return render_template('index.html', info='Документ не указан. Вы укажите.', token=token)
-    filename = secure_filename(file.filename)
-    filename = fix_extension(filename)
-    if os.path.exists(os.path.join(ROOT_FOLDER, APP_PATH, filename)):
-        return render_template('index.html', info='Документ с имя %s существует. Не расстраивайте товарищ Xi Зиньпин!' % filename, token=token)
-    file.save(os.path.join(ROOT_FOLDER, APP_PATH, filename))
-    link = request.url_root + token + '/getfile?filename=' + filename
-    return render_template('upload.html', link=link, token=token)
+    @app.route('/<token>/')
+    def index(token):
+        return render_template('index.html', token=token)
 
 
-@app.route('/<token>/getfile')
-def getfile(token):
-    filename = request.args.get('filename', '')
-    if filename == '':
-        return 'Документ не обнаружен.'
+    @app.route('/<token>/upload', methods=['POST'])
+    def upload(token):
+        file = request.files['file']
+        if file.filename == '':
+            return render_template('index.html', info='Документ не указан. Вы укажите.', token=token)
+        filename = secure_filename(file.filename)
+        filename = fix_extension(filename)
+        if os.path.exists(os.path.join(ROOT_FOLDER, APP_PATH, filename)):
+            return render_template('index.html', info='Документ с имя %s существует. Не расстраивайте товарищ Xi Зиньпин!' % filename, token=token)
+        file.save(os.path.join(ROOT_FOLDER, APP_PATH, filename))
+        link = request.url_root + token + '/getfile?filename=' + filename
+        return render_template('upload.html', link=link, token=token)
 
-    filename = fix_extension(filename)
-    path = pathlib.PurePath('/', APP_PATH)
 
-    for item in pathlib.PurePath(filename).parts:
-        if item == '..':
-            path = path.parent
-        else:
-            path = path / item
+    @app.route('/<token>/getfile')
+    def getfile(token):
+        filename = request.args.get('filename', '')
+        if filename == '':
+            return 'Документ не обнаружен.'
 
-    path = ROOT_FOLDER + str(path)
+        filename = fix_extension(filename)
+        path = pathlib.PurePath('/', APP_PATH)
 
-    try:
-        f = open(path, 'rb')
-        content = f.read().replace(b'!!!{{{flag}}}!!!', generate_flag(token).encode())
-        return send_file(filename_or_fp=io.BytesIO(content), as_attachment=True, attachment_filename=filename)
-    except FileNotFoundError:
-        return 'Документ с имя %s не обнаружен.' % filename
-    except IsADirectoryError:
-        return "IsADirectoryError: [Errno 21] Is a directory: '%s'" % filename
+        for item in pathlib.PurePath(filename).parts:
+            if item == '..':
+                path = path.parent
+            else:
+                path = path / item
+
+        path = ROOT_FOLDER + str(path)
+
+        try:
+            f = open(path, 'rb')
+            content = f.read().replace(b'!!!{{{flag}}}!!!', generate_flag(token).encode())
+            return send_file(filename_or_fp=io.BytesIO(content), as_attachment=True, attachment_filename=filename)
+        except FileNotFoundError:
+            return 'Документ с имя %s не обнаружен.' % filename
+        except IsADirectoryError:
+            return "IsADirectoryError: [Errno 21] Is a directory: '%s'" % filename
+
+
+    return app
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app = make_app()
+    if os.environ.get('DEBUG') == 'F':
+        app.run(host='0.0.0.0', port=31337, debug=True)
+    else:
+        app.run(host='0.0.0.0', port=34828)
