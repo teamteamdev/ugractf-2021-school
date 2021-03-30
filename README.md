@@ -4,7 +4,14 @@
 
 ## Таски
 
-[TODO]
+[Агентство](tasks/agency/) (forensics 300, kalan)  
+[S21 Airlines](tasks/airlines/) (web 150, ksixty)  
+[Безопасный чат](tasks/back_forth/) (reverse 150, abbradar)  
+[Альфа-версия](tasks/buggy) (reverse 350, abbradar)  
+[Dropbox](tasks/dropbox) (web 200, javach)  
+[Японский шифр](tasks/japcipher) (crypto 150, ksixty)  
+[Юртогонки!](tasks/urtracing) (ppc 200, vanya)  
+[Упаковано](tasks/wrapped) (crypto 100, kalan)
 
 ## Команда разработки
 
