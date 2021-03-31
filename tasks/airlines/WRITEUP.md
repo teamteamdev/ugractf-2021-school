@@ -93,3 +93,5 @@ def solve():
 
 solve()
 ```
+
+Флаг: **ugra_booking_numbers_are_sequential_yet_ticket_prices_are_exponential_fc535d1df8b41229**
