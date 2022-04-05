@@ -1,6 +1,6 @@
 # Ugra CTF School 2021
 
-[Сайт](https://2021.ugractf.ru) | [Результаты](SCOREBOARD.md)
+[Сайт](https://2021.ugractf.ru) | [Результаты](https://o.ugractf.ru/ugractf-20-21-school-results.pdf)
 
 ## Таски
 
